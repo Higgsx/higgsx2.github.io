@@ -2,151 +2,151 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://higgsx.github.io/posts/2014/09/creating-a-new-theme/</loc>
+    <loc>http://redsec.blog/posts/2014/09/creating-a-new-theme/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://higgsx.github.io/fr/posts/2014/09/cr%C3%A9ation-dun-nouveau-th%C3%A8me/"
+                href="http://redsec.blog/fr/posts/2014/09/cr%C3%A9ation-dun-nouveau-th%C3%A8me/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://higgsx.github.io/posts/2014/09/creating-a-new-theme/"
+                href="http://redsec.blog/posts/2014/09/creating-a-new-theme/"
                 />
   </url><url>
-    <loc>https://higgsx.github.io/posts/2014/03/migrate-to-hugo-from-jekyll/</loc>
+    <loc>http://redsec.blog/posts/2014/03/migrate-to-hugo-from-jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://higgsx.github.io/fr/posts/2014/03/migrer-vers-hugo-depuis-jekyll/"
+                href="http://redsec.blog/fr/posts/2014/03/migrer-vers-hugo-depuis-jekyll/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://higgsx.github.io/posts/2014/03/migrate-to-hugo-from-jekyll/"
+                href="http://redsec.blog/posts/2014/03/migrate-to-hugo-from-jekyll/"
                 />
   </url><url>
-    <loc>https://higgsx.github.io/about/</loc>
+    <loc>http://redsec.blog/about/</loc>
     <lastmod>2021-09-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://higgsx.github.io/</loc>
+    <loc>http://redsec.blog/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://higgsx.github.io/fr/"
+                href="http://redsec.blog/fr/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://higgsx.github.io/"
+                href="http://redsec.blog/"
                 />
   </url><url>
-    <loc>https://higgsx.github.io/series/hugo-101/</loc>
+    <loc>http://redsec.blog/series/hugo-101/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://higgsx.github.io/posts/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://higgsx.github.io/fr/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://higgsx.github.io/posts/"
-                />
-  </url><url>
-    <loc>https://higgsx.github.io/series/</loc>
+    <loc>http://redsec.blog/posts/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://higgsx.github.io/fr/series/"
+                href="http://redsec.blog/fr/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://higgsx.github.io/series/"
+                href="http://redsec.blog/posts/"
                 />
   </url><url>
-    <loc>https://higgsx.github.io/posts/2014/04/hugo-template-primer/</loc>
+    <loc>http://redsec.blog/series/</loc>
+    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="http://redsec.blog/fr/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://redsec.blog/series/"
+                />
+  </url><url>
+    <loc>http://redsec.blog/posts/2014/04/hugo-template-primer/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://higgsx.github.io/fr/posts/2014/04/introduction-aux-mod%C3%A8les-hugo/"
+                href="http://redsec.blog/fr/posts/2014/04/introduction-aux-mod%C3%A8les-hugo/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://higgsx.github.io/posts/2014/04/hugo-template-primer/"
+                href="http://redsec.blog/posts/2014/04/hugo-template-primer/"
                 />
   </url><url>
-    <loc>https://higgsx.github.io/categories/</loc>
+    <loc>http://redsec.blog/categories/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://higgsx.github.io/fr/categories/"
+                href="http://redsec.blog/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://higgsx.github.io/categories/"
+                href="http://redsec.blog/categories/"
                 />
   </url><url>
-    <loc>https://higgsx.github.io/categories/development/</loc>
+    <loc>http://redsec.blog/categories/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://higgsx.github.io/tags/development/</loc>
+    <loc>http://redsec.blog/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://higgsx.github.io/posts/2014/04/getting-started-with-hugo/</loc>
+    <loc>http://redsec.blog/posts/2014/04/getting-started-with-hugo/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://higgsx.github.io/fr/posts/2014/04/d%C3%A9buter-avec-hugo/"
+                href="http://redsec.blog/fr/posts/2014/04/d%C3%A9buter-avec-hugo/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://higgsx.github.io/posts/2014/04/getting-started-with-hugo/"
+                href="http://redsec.blog/posts/2014/04/getting-started-with-hugo/"
                 />
   </url><url>
-    <loc>https://higgsx.github.io/tags/go/</loc>
+    <loc>http://redsec.blog/tags/go/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://higgsx.github.io/tags/golang/</loc>
+    <loc>http://redsec.blog/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://higgsx.github.io/categories/golang/</loc>
+    <loc>http://redsec.blog/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://higgsx.github.io/tags/hugo/</loc>
+    <loc>http://redsec.blog/tags/hugo/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://higgsx.github.io/tags/</loc>
+    <loc>http://redsec.blog/tags/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://higgsx.github.io/fr/tags/"
+                href="http://redsec.blog/fr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://higgsx.github.io/tags/"
+                href="http://redsec.blog/tags/"
                 />
   </url><url>
-    <loc>https://higgsx.github.io/tags/templates/</loc>
+    <loc>http://redsec.blog/tags/templates/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://higgsx.github.io/tags/themes/</loc>
+    <loc>http://redsec.blog/tags/themes/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url>
 </urlset>
