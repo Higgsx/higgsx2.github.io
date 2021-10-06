@@ -56,6 +56,7 @@ Every 60 minutes SDPropagator in AD, will overwrite Protected groups ACL with Ad
 <p>if you compare lets say DA group to adminsdholder group acls. they will be equal</p>
 <p><img src="/images/Untitled%2015.png" alt="Untitled"></p>
 <p>So in order to make smart move, you can add your new user to <code>AdminSDHolder</code> DACL and in 60 minutes you will be added to every protected groups such as <code>Domain Admins</code>, <code>Print Operators</code>, <code>Backup Operators</code> and etc.</p>
+<p>Many sysadmin aren&rsquo;t aware of that feature, but are aware of membership of Domain Admins group. There is less chance of detection if the above mentioned container will be used to persistence.</p>
 ]]></content>
         </item>
         

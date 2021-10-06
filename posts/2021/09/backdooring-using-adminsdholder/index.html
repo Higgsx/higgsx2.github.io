@@ -46,7 +46,7 @@ Every 60 minutes SDPropagator in AD, will overwrite Protected groups ACL with Ad
 <meta itemprop="description" content="In a red team operation when we gain Domain Admin privileges, we want to make sure we will have access to the environment even though system administrators or blue teamers notice it. In Active Directory environment amount of TTPs (Techniques, Tactics, Procedures) for persistence is huge. One common way to persist is to use AdminSDHolder container, which is in System container
 Every 60 minutes SDPropagator in AD, will overwrite Protected groups ACL with AdminSDHolder ACL."><meta itemprop="datePublished" content="2021-09-20T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-09-20T00:00:00+00:00" />
-<meta itemprop="wordCount" content="484"><meta itemprop="image" content="http://redsec.blog"/>
+<meta itemprop="wordCount" content="516"><meta itemprop="image" content="http://redsec.blog"/>
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://redsec.blog"/>
@@ -198,6 +198,7 @@ Every 60 minutes SDPropagator in AD, will overwrite Protected groups ACL with Ad
 <p>if you compare lets say DA group to adminsdholder group acls. they will be equal</p>
 <p><img src="http://redsec.blog/images/Untitled%2015.png" alt="Untitled"></p>
 <p>So in order to make smart move, you can add your new user to <code>AdminSDHolder</code> DACL and in 60 minutes you will be added to every protected groups such as <code>Domain Admins</code>, <code>Print Operators</code>, <code>Backup Operators</code> and etc.</p>
+<p>Many sysadmin aren&rsquo;t aware of that feature, but are aware of membership of Domain Admins group. There is less chance of detection if the above mentioned container will be used to persistence.</p>
 
       </div>
     </article>
@@ -216,7 +217,7 @@ Every 60 minutes SDPropagator in AD, will overwrite Protected groups ACL with Ad
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        484 Words
+        516 Words
       </p>
 
       <p>
