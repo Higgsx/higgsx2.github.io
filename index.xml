@@ -19,6 +19,16 @@ Blog posts will be about  Attacking and Secure Active Directory environment Expl
     </item>
     
     <item>
+      <title>Backdooring using AdminSDHolder</title>
+      <link>http://redsec.blog/posts/2021/09/backdooring-using-adminsdholder/</link>
+      <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://redsec.blog/posts/2021/09/backdooring-using-adminsdholder/</guid>
+      <description>In a red team operation when we gain Domain Admin privileges, we want to make sure we will have access to the environment even though system administrators or blue teamers notice it. In Active Directory environment amount of TTPs (Techniques, Tactics, Procedures) for persistence is huge. One common way to persist is to use AdminSDHolder container, which is in System container
+Every 60 minutes SDPropagator in AD, will overwrite Protected groups ACL with AdminSDHolder ACL.</description>
+    </item>
+    
+    <item>
       <title>HTB Offshore Review</title>
       <link>http://redsec.blog/posts/2021/09/htb-offshore-review/</link>
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>

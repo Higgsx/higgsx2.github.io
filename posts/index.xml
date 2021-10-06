@@ -10,6 +10,56 @@
         <atom:link href="http://redsec.blog/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Backdooring using AdminSDHolder</title>
+            <link>http://redsec.blog/posts/2021/09/backdooring-using-adminsdholder/</link>
+            <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
+            
+            <guid>http://redsec.blog/posts/2021/09/backdooring-using-adminsdholder/</guid>
+            <description>In a red team operation when we gain Domain Admin privileges, we want to make sure we will have access to the environment even though system administrators or blue teamers notice it. In Active Directory environment amount of TTPs (Techniques, Tactics, Procedures) for persistence is huge. One common way to persist is to use AdminSDHolder container, which is in System container
+Every 60 minutes SDPropagator in AD, will overwrite Protected groups ACL with AdminSDHolder ACL.</description>
+            <content type="html"><![CDATA[<p>In a red team operation when we gain Domain Admin privileges, we want to make sure we will have access to the environment even though system administrators or blue teamers notice it. In Active Directory environment amount of TTPs (Techniques, Tactics, Procedures) for persistence is huge. One common way to persist is to use <code>AdminSDHolder</code> container, which is in <code>System</code> container</p>
+<p><img src="/images/Untitled.png" alt="Untitled"></p>
+<p>Every 60 minutes SDPropagator in AD, will overwrite Protected groups ACL with <code>AdminSDHolder</code> ACL. In other words, if you change DACL of <code>Domain Admins</code> Group, it will be overwritten by SDProp every 1 hour.</p>
+<p>Many folks will change DACL of Domain Admins but there is high chance that someone will notice it. In case we change DACL of AdminSDHolder, even though administrator notices and changes <code>DACL</code> of DA, in 60 minutes Domain Admins DACL will be changed and will give you more time to move laterally.</p>
+<p><code>Note</code>: For the following demonstrations I am using <a href="https://www.zeropointsecurity.co.uk/red-team-ops/overview">ZeroPointSecurity</a> CRTO Lab.</p>
+<p>First, Let&rsquo;s see what we can do if we have FullControl (same as <code>GenericAll</code>) over DA group.</p>
+<p>Create new user: panda</p>
+<p><img src="/images/Untitled%201.png" alt="Untitled"></p>
+<p>Test if we really have that user via ActiveDirectory module, installed default on every Domain Controller</p>
+<p><code>&gt; Get-ADUser Panda</code></p>
+<p><img src="/images/Untitled%202.png" alt="Untitled"></p>
+<p>and we want to give panda something powerful. Open <code>Domain Admins</code> group DACL or as everyone is familiar with: Permissions. We have DACL and SACL. DACL stands for: Discretionary Access Control List and SACL stands for: System Access Control List. <code>SACL</code> is for audit purposes but the blog post isn&rsquo;t about that.</p>
+<p><img src="/images/Untitled%203.png" alt="Untitled"></p>
+<p>ACL is a list or chain of ACEs. ACEs at the upper level takes precedence over ACEs below.</p>
+<p>Click add to add our user panda to <code>ACL</code></p>
+<p><img src="/images/Untitled%204.png" alt="Untitled"></p>
+<p>And give full permission (Full Control) also  known as <code>GenericAll</code></p>
+<p><img src="/images/Untitled%205.png" alt="Untitled"></p>
+<p>and we see listed here</p>
+<p><img src="/images/Untitled%206.png" alt="Untitled"></p>
+<p>Now that panda has Full Access to this group we can add users to this group or change properties of DA group.</p>
+<p><img src="/images/Untitled%207.png" alt="Untitled"></p>
+<p>first, in order to make sure panda has full access to the group we can use powershell.</p>
+<p><code>&gt; Get-ACL -Path &quot;AD:CN=Domain Admins,CN=Users,DC=dev,DC=cyberbotic,DC=io&quot; | select -ExpandProperty Access</code></p>
+<p><img src="/images/Untitled%208.png" alt="Untitled"></p>
+<p><img src="/images/Untitled%209.png" alt="Untitled"></p>
+<p>now, execute powershell in a context of domain user: panda and try to add user to DA group</p>
+<p><img src="/images/Untitled%2010.png" alt="Untitled"></p>
+<p><img src="/images/Untitled%2011.png" alt="Untitled"></p>
+<p><img src="/images/Untitled%2012.png" alt="Untitled"></p>
+<p><img src="/images/Untitled%2014.png" alt="Untitled"></p>
+<p>After Deletion</p>
+<p><img src="/images/Untitled%2013.png" alt="Untitled"></p>
+<p>Important Note: just because you have GenericAll on Domain Admins group, doesn&rsquo;t mean you can manipulate users enrolled in the group. So you can&rsquo;t reset passwords of users within this group and etc.</p>
+<p>You can add your user temporarily and grant yourself DA privileges. But issue is that it isn&rsquo;t permanent because as we said: <code>AdminSDHolder</code>. Every 60 minutes, SDPropagator propagates AdminSDHolder&rsquo;s ACL into Protected Groups: <code>Domain Admin</code> <code>Print Operators</code> etc.</p>
+<p><img src="/images/Untitled.png" alt="Untitled"></p>
+<p>if you compare lets say DA group to adminsdholder group acls. they will be equal</p>
+<p><img src="/images/Untitled%2015.png" alt="Untitled"></p>
+<p>So in order to make smart move, you can add your new user to <code>AdminSDHolder</code> DACL and in 60 minutes you will be added to every protected groups such as <code>Domain Admins</code>, <code>Print Operators</code>, <code>Backup Operators</code> and etc.</p>
+]]></content>
+        </item>
+        
+        <item>
             <title>HTB Offshore Review</title>
             <link>http://redsec.blog/posts/2021/09/htb-offshore-review/</link>
             <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
