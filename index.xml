@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://redsec.blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://redsec.blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CRTP Certification/Training course Review</title>
+      <link>http://redsec.blog/posts/2021/10/crtp-certification/training-course-review/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://redsec.blog/posts/2021/10/crtp-certification/training-course-review/</guid>
+      <description>Introduction Before starting HackTheBox Offshore I needed some background on attacking Active Directory environment. I had had some sysadmin experience in AD and it was time to going through penetration testing course focused on Active Directory. I had already heard about PentesterAcademy training course (Attacking and Defending Active Directory) and didn&amp;rsquo;t spend time on searching much back then and immediately purchased this course which is accompanying training course for CRTP examination.</description>
+    </item>
+    
     <item>
       <title>About</title>
       <link>http://redsec.blog/about/</link>
