@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Higgsx Brain Dump</title>
+    <title>Higgs0x Brain Dump</title>
     <link>http://redsec.blog/</link>
-    <description>Recent content on Higgsx Brain Dump</description>
+    <description>Recent content on Higgs0x Brain Dump</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://redsec.blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://redsec.blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DPAPI Online/Offline Decryption</title>
+      <link>http://redsec.blog/posts/2022/02/dpapi-online/offline-decryption/</link>
+      <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://redsec.blog/posts/2022/02/dpapi-online/offline-decryption/</guid>
+      <description>Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily even if you aren&amp;rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&amp;rsquo;t need to worry about encryption keys at all.
+DPAPI has 2 simple API:
+CryptProtectData()CryptUnprotectData()As you might already guessed it:
+For encryption you use CryptProtectData()
+For decryption you use CryptUnprotectData()
+Windows operating system takes care of everything.</description>
+    </item>
+    
     <item>
       <title>CRTP Certification/Training course Review</title>
       <link>http://redsec.blog/posts/2021/10/crtp-certification/training-course-review/</link>
@@ -23,8 +37,8 @@
       <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>http://redsec.blog/about/</guid>
-      <description>Blog on my red teaming journey. My Main objective is learning complex topics through teaching others, that forces me to dig deep and don&amp;rsquo;t just execute &amp;ldquo;hackish&amp;rdquo; commands without understanding deeper meaning. Second objective is teaching others, because sharing knowledge strenghtens community and helps beginner folks to build up their cyber security career.
-Blog posts will be about  Attacking and Secure Active Directory environment Explore common Web Application issues Red Team tradecraft Little bit of exploit development on windows or linux environment Explaining newly discovered 0days  Contact me  Email: ltakashvili[at]protonmail.</description>
+      <description>Blog on my red teaming journey. My Main objective is learning complex topics through teaching others, that forces me to dig deep and don&amp;rsquo;t just execute &amp;ldquo;hackish&amp;rdquo; commands without understanding deeper meaning.
+Blog posts will be about  Attack and Secure Active Directory environment Web Application Security Red Team tradecraft exploit development Explaining newly discovered 0days  Contact me  Email: ltakashvili[at]protonmail.com or goebbelsx[at]gmail.com Twitter: @Higgs0x  </description>
     </item>
     
     <item>

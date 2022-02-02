@@ -1,13 +1,85 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Posts on Higgsx Brain Dump</title>
+        <title>Posts on Higgs0x Brain Dump</title>
         <link>http://redsec.blog/posts/</link>
-        <description>Recent content in Posts on Higgsx Brain Dump</description>
+        <description>Recent content in Posts on Higgs0x Brain Dump</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Wed, 02 Feb 2022 00:00:00 +0000</lastBuildDate>
         <atom:link href="http://redsec.blog/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>DPAPI Online/Offline Decryption</title>
+            <link>http://redsec.blog/posts/2022/02/dpapi-online/offline-decryption/</link>
+            <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
+            
+            <guid>http://redsec.blog/posts/2022/02/dpapi-online/offline-decryption/</guid>
+            <description>Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily even if you aren&amp;rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&amp;rsquo;t need to worry about encryption keys at all.
+DPAPI has 2 simple API:
+CryptProtectData()CryptUnprotectData()As you might already guessed it:
+For encryption you use CryptProtectData()
+For decryption you use CryptUnprotectData()
+Windows operating system takes care of everything.</description>
+            <content type="html"><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily even if you aren&rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&rsquo;t need to worry about encryption keys at all.</p>
+<p>DPAPI has 2 simple API:</p>
+<pre tabindex="0"><code>CryptProtectData()
+CryptUnprotectData()
+</code></pre><p><img src="/images/dpapi1.png" alt="Example image"></p>
+<p>As you might already guessed it:</p>
+<p>For encryption you use <code>CryptProtectData()</code></p>
+<p>For decryption you use <code>CryptUnprotectData()</code></p>
+<p>Windows operating system takes care of everything. for encryption it uses your password hash when you are in local user context. Different story is when you are part of a Active Directory domain. This post will be about local user context.</p>
+<h2 id="credential-manager">Credential Manager</h2>
+<p>Credential Manager is windows feature which contains all your passwords safe. You can keep RDP, web, Chrome, github passwords and etc. It is like password manager.</p>
+<p><img src="/images/credmanager.png" alt="Example image"></p>
+<p>You can see on screenshot that I have 2 RDP password saved (TERMSRV service means I have RDP credentials saved). Also I have github password. It is useful when you push new commits and don&rsquo;t have to type credentials everytime. git commandline utility decrypts this password and uses it to authenticate remotely.</p>
+<p>Web Credentials is for passwords related to web. You can also manually add new creds via such feature.</p>
+<p>All of this is done via DPAPI. It uses something like <code>Master Key</code> which encrypts and decrypts your data. Master Keys are stored in user&rsquo;s <code>AppData</code> directory. For testing purposes create test credentials:</p>
+<p><img src="/images/testcred.png" alt="Example image"></p>
+<p>My master key which was used to encrypt my data.
+<img src="/images/masterkey.png" alt="Example image"></p>
+<p><code>b625df90-d6ad-4528-a3c1-0c3beb58df34</code> is our key file and we will see proof of that when we open it via <code>mimikatz</code></p>
+<p>interested what happens when we saved test credentials via Credential Manager? We can get that via <code>procmon</code> sysinternals tools:</p>
+<p><img src="/images/procmon.png" alt="Example image"></p>
+<p>process in charge here was <code>lsass.exe</code> which took care of this. It opened <code>Prefered</code> file which points to recent masterkey in use. Takes that and uses it to encrypt our data and encrypted blob is put into <code>A5FEB27BE0210EF5E455C689AAC6802B</code> data blob.</p>
+<p><img src="/images/blob.png" alt="Example image"></p>
+<h2 id="time-to-mimikatz">Time to mimikatz</h2>
+<p>Let&rsquo;s open this in <code>mimikatz</code> and see what is in it:</p>
+<p><img src="/images/mimikatz.png" alt="Example image"></p>
+<p>Mimikatz module for this is <code>dpapi::cred</code> which takes <code>/in:&lt;path&gt;</code> argument as a encrypted data blob. We can see from above picture that <code>guidMasterKey</code> or simply <code>Master key</code> used is <code>b625df90-d6ad-4528-a3c1-0c3beb58df34</code>.</p>
+<p><img src="/images/pbdata.png" alt="Example image"></p>
+<p>pbData is our actual credential</p>
+<p>Now, use our master key and decrypt it. Because we are in a user context there is no need to decrypt master key and then decrypt encrypted data blob</p>
+<p>Command is following:</p>
+<pre tabindex="0"><code>mimikatz # dpapi::cred /in:&quot;C:\Users\Higgsx\AppData\Roaming\Microsoft\Credentials\A5FEB27BE0210EF5E455C689AAC6802B&quot; /unprotect
+</code></pre><p><img src="/images/unprotect.png" alt="Example image"></p>
+<p>Password is visible below:
+<img src="/images/passwords.png" alt="Example image"></p>
+<p>So as I said it was current user context. What happens when we log in via other account?</p>
+<p>transfer master key and encrypted data blob to <code>C:\Users\Public</code> so that I can access them from another account:</p>
+<p><img src="/images/other.png" alt="Example image"></p>
+<p>we see that this data blob is expecting master key <code>b625df90-d6ad-4528-a3c1-0c3beb58df34</code> as we expected.</p>
+<p>Try to decrypt:</p>
+<p><img src="/images/other2.png" alt="Example image"></p>
+<p>but we failed:</p>
+<p><img src="/images/fail.png" alt="Example image"></p>
+<p>we failed because we need SID and password of the user who encrypted that.</p>
+<p>SID: <code>S-1-5-21-1160870239-168060136-1582979013-1000</code></p>
+<p>Password: <code>qweqwe</code></p>
+<p>First decrypt master key:</p>
+<p><img src="/images/command.png" alt="Example image"></p>
+<p>below we see key value and sha1 value. any of them is applicable But in this case lets use key value (long one)</p>
+<p><img src="/images/mk.png" alt="Example image"></p>
+<p>Use that decrypted masterkey to unprotect data blog</p>
+<p><img src="/images/blah.png" alt="Example image"></p>
+<p>Finally:</p>
+<p><img src="/images/blah2.png" alt="Example image"></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This was part 1. In the next post I will try to explain the way Chrome web browser uses DPAPI to store its Cookies and ways to decrypt them.</p>
+]]></content>
+        </item>
         
         <item>
             <title>CRTP Certification/Training course Review</title>
