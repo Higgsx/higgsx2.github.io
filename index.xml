@@ -14,12 +14,11 @@
       <pubDate>Wed, 02 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>http://redsec.blog/posts/2022/02/dpapi-online/offline-decryption/</guid>
-      <description>Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily even if you aren&amp;rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&amp;rsquo;t need to worry about encryption keys at all.
+      <description>Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily by windows even if you aren&amp;rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&amp;rsquo;t need to worry about encryption keys at all.
 DPAPI has 2 simple API:
 CryptProtectData()CryptUnprotectData()As you might already guessed it:
 For encryption you use CryptProtectData()
-For decryption you use CryptUnprotectData()
-Windows operating system takes care of everything.</description>
+For decryption you use CryptUnprotectData()</description>
     </item>
     
     <item>

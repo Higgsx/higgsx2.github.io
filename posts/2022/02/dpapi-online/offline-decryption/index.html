@@ -5,12 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Higgsx ">
-<meta name="description" content="Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily even if you aren&amp;rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&amp;rsquo;t need to worry about encryption keys at all.
+<meta name="description" content="Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily by windows even if you aren&amp;rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&amp;rsquo;t need to worry about encryption keys at all.
 DPAPI has 2 simple API:
 CryptProtectData()CryptUnprotectData()As you might already guessed it:
 For encryption you use CryptProtectData()
-For decryption you use CryptUnprotectData()
-Windows operating system takes care of everything." />
+For decryption you use CryptUnprotectData()" />
 <meta name="keywords" content="hacking,pentest,redteam,exploitation,activedirectory" />
 <meta name="robots" content="index, follow" />
 <meta name="theme-color" content="" />
@@ -47,36 +46,33 @@ Windows operating system takes care of everything." />
 
 
 <meta itemprop="name" content="DPAPI Online/Offline Decryption">
-<meta itemprop="description" content="Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily even if you aren&rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&rsquo;t need to worry about encryption keys at all.
+<meta itemprop="description" content="Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily by windows even if you aren&rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&rsquo;t need to worry about encryption keys at all.
 DPAPI has 2 simple API:
 CryptProtectData()CryptUnprotectData()As you might already guessed it:
 For encryption you use CryptProtectData()
-For decryption you use CryptUnprotectData()
-Windows operating system takes care of everything."><meta itemprop="datePublished" content="2022-02-02T00:00:00+00:00" />
+For decryption you use CryptUnprotectData()"><meta itemprop="datePublished" content="2022-02-02T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-02-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="558"><meta itemprop="image" content="http://redsec.blog"/>
+<meta itemprop="wordCount" content="572"><meta itemprop="image" content="http://redsec.blog"/>
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://redsec.blog"/>
 
 <meta name="twitter:title" content="DPAPI Online/Offline Decryption"/>
-<meta name="twitter:description" content="Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily even if you aren&rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&rsquo;t need to worry about encryption keys at all.
+<meta name="twitter:description" content="Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily by windows even if you aren&rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&rsquo;t need to worry about encryption keys at all.
 DPAPI has 2 simple API:
 CryptProtectData()CryptUnprotectData()As you might already guessed it:
 For encryption you use CryptProtectData()
-For decryption you use CryptUnprotectData()
-Windows operating system takes care of everything."/>
+For decryption you use CryptUnprotectData()"/>
 
 
 
 
     <meta property="og:title" content="DPAPI Online/Offline Decryption" />
-<meta property="og:description" content="Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily even if you aren&rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&rsquo;t need to worry about encryption keys at all.
+<meta property="og:description" content="Introduction DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily by windows even if you aren&rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&rsquo;t need to worry about encryption keys at all.
 DPAPI has 2 simple API:
 CryptProtectData()CryptUnprotectData()As you might already guessed it:
 For encryption you use CryptProtectData()
-For decryption you use CryptUnprotectData()
-Windows operating system takes care of everything." />
+For decryption you use CryptUnprotectData()" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://redsec.blog/posts/2022/02/dpapi-online/offline-decryption/" /><meta property="og:image" content="http://redsec.blog"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-02-02T00:00:00+00:00" />
@@ -176,7 +172,7 @@ Windows operating system takes care of everything." />
 
       <div class="post-content">
         <h1 id="introduction">Introduction</h1>
-<p>DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily even if you aren&rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&rsquo;t need to worry about encryption keys at all.</p>
+<p>DPAPI stands for Data Protection API and was introducted by microsoft in Windows 2000 and since then it is used heavily by windows even if you aren&rsquo;t aware of it. Simply put, DPAPI lets you encrypt/decrypt data. You don&rsquo;t need to worry about encryption keys at all.</p>
 <p>DPAPI has 2 simple API:</p>
 <pre tabindex="0"><code>CryptProtectData()
 CryptUnprotectData()
@@ -188,14 +184,14 @@ CryptUnprotectData()
 <h2 id="credential-manager">Credential Manager</h2>
 <p>Credential Manager is windows feature which contains all your passwords safe. You can keep RDP, web, Chrome, github passwords and etc. It is like password manager.</p>
 <p><img src="http://redsec.blog/images/credmanager.png" alt="Example image"></p>
-<p>You can see on screenshot that I have 2 RDP password saved (TERMSRV service means I have RDP credentials saved). Also I have github password. It is useful when you push new commits and don&rsquo;t have to type credentials everytime. git commandline utility decrypts this password and uses it to authenticate remotely.</p>
+<p>You can see on screenshot that I have 2 RDP password saved (TERMSRV service means I have RDP credentials saved). Also I have github password. It is useful when you push new commits and don&rsquo;t have to type credentials everytime. git commandline utility decrypts this password behind the scenes and uses it to authenticate remotely.</p>
 <p>Web Credentials is for passwords related to web. You can also manually add new creds via such feature.</p>
 <p>All of this is done via DPAPI. It uses something like <code>Master Key</code> which encrypts and decrypts your data. Master Keys are stored in user&rsquo;s <code>AppData</code> directory. For testing purposes create test credentials:</p>
 <p><img src="http://redsec.blog/images/testcred.png" alt="Example image"></p>
 <p>My master key which was used to encrypt my data.
 <img src="http://redsec.blog/images/masterkey.png" alt="Example image"></p>
 <p><code>b625df90-d6ad-4528-a3c1-0c3beb58df34</code> is our key file and we will see proof of that when we open it via <code>mimikatz</code></p>
-<p>interested what happens when we saved test credentials via Credential Manager? We can get that via <code>procmon</code> sysinternals tools:</p>
+<p>interested what happens when we saved test credentials via Credential Manager? We can get that via <code>procmon</code> from sysinternals tools:</p>
 <p><img src="http://redsec.blog/images/procmon.png" alt="Example image"></p>
 <p>process in charge here was <code>lsass.exe</code> which took care of this. It opened <code>Prefered</code> file which points to recent masterkey in use. Takes that and uses it to encrypt our data and encrypted blob is put into <code>A5FEB27BE0210EF5E455C689AAC6802B</code> data blob.</p>
 <p><img src="http://redsec.blog/images/blob.png" alt="Example image"></p>
@@ -204,7 +200,7 @@ CryptUnprotectData()
 <p><img src="http://redsec.blog/images/mimikatz.png" alt="Example image"></p>
 <p>Mimikatz module for this is <code>dpapi::cred</code> which takes <code>/in:&lt;path&gt;</code> argument as a encrypted data blob. We can see from above picture that <code>guidMasterKey</code> or simply <code>Master key</code> used is <code>b625df90-d6ad-4528-a3c1-0c3beb58df34</code>.</p>
 <p><img src="http://redsec.blog/images/pbdata.png" alt="Example image"></p>
-<p>pbData is our actual credential</p>
+<p>pbData is our actual encrypted credential</p>
 <p>Now, use our master key and decrypt it. Because we are in a user context there is no need to decrypt master key and then decrypt encrypted data blob</p>
 <p>Command is following:</p>
 <pre tabindex="0"><code>mimikatz # dpapi::cred /in:&quot;C:\Users\Higgsx\AppData\Roaming\Microsoft\Credentials\A5FEB27BE0210EF5E455C689AAC6802B&quot; /unprotect
@@ -231,7 +227,8 @@ CryptUnprotectData()
 <p>Finally:</p>
 <p><img src="http://redsec.blog/images/blah2.png" alt="Example image"></p>
 <h2 id="conclusion">Conclusion</h2>
-<p>This was part 1. In the next post I will try to explain the way Chrome web browser uses DPAPI to store its Cookies and ways to decrypt them.</p>
+<p>This was part 1. In the next post I will try to explain the way Chrome web browser uses DPAPI to store its Cookies and ways to decrypt them. Sorry for small images here.</p>
+<p>Stay tuned.</p>
 
       </div>
     </article>
@@ -250,7 +247,7 @@ CryptUnprotectData()
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        558 Words
+        572 Words
       </p>
 
       <p>
